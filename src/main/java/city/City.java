@@ -9,8 +9,6 @@ public class City {
     private List<Building> buildings = new ArrayList<>();
 
 
-
-
     public City(String name, long fullArea) {
         this.name = name;
         this.fullArea = fullArea;

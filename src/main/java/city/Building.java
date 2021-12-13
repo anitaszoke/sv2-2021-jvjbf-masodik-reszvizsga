@@ -29,8 +29,9 @@ public abstract class Building {
         return address;
     }
 
-    public void getFullArea() {
+    public int getFullArea() {
         int fullArea = area * levels;
+        return fullArea;
     }
 
     public abstract int calculateNumberOfPeopleCanFit();

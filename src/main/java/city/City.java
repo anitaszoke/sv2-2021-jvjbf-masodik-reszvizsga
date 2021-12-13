@@ -30,16 +30,6 @@ public class City {
         buildings.add(building);
     }
 
-    public Building findHighestBuildingInCity() {
-        int max = Integer.MIN_VALUE;
-        for (Building b : buildings) {
-            if (b.getLevels() > max) {
-                max = b.getLevels();
-            }
-        }
-        return buildings.get(max);
-    }
-
     public Building findHighestBuilding() {
         int max = Integer.MIN_VALUE;
         Building building1 = buildings.get(0);
@@ -51,5 +41,24 @@ public class City {
             }
         }
         return building1;
+    }
+
+    public List<Building> findBuildingsByStreet(String address) {
+        List<Building> filteredBuild = new ArrayList<>();
+
+        for (Building b : buildings) {
+
+            if (b.getAddress().getStreet().contains(address)) {
+            filteredBuild.add(b);
+        }
+
+    }
+        return filteredBuild;
+}
+
+    public boolean isThereBuildingWithMorePeopleThan(int i) {
+        for (Building b : buildings) {
+
+        }
     }
 }

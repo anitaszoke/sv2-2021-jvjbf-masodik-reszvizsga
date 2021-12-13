@@ -18,7 +18,6 @@ public class Home extends Building {
         }
     }
 
-
     @Override
     public int getFullArea() {
         return super.getFullArea();

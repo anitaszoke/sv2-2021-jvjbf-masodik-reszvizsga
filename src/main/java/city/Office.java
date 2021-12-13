@@ -10,6 +10,7 @@ public class Office extends Building {
         super(area, levels, address);
         this.company = company;
         this.numberOfTablesPerLevel = numberOfTablesPerLevel;
+
     }
 
     public String getCompany() {
@@ -27,6 +28,6 @@ public class Office extends Building {
 
     @Override
     public int calculateNumberOfPeopleCanFit() {
-        return (getLevels() * getArea()) / SQUARE_METERS_NEED_PER_PERSON;
+        return (super.getLevels() * super.getArea()) / SQUARE_METERS_NEED_PER_PERSON;
     }
 }

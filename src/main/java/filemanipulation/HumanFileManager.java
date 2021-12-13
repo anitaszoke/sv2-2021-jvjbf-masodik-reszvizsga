@@ -2,9 +2,7 @@ package filemanipulation;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +14,13 @@ public class HumanFileManager {
     }
 
     public void readHumansFromFile(Path path) {
-        List<String> humanStringList = new ArrayList<>();
+        List<String> humanStringList;
         try {
             humanStringList = Files.readAllLines(path);
 
             for (String s : humanStringList) {
                 String[] stringAr = s.split(";");
-                humans.add(new Human(stringAr[0],stringAr[1]));
+                humans.add(new Human(stringAr[0], stringAr[1]));
             }
 
         } catch (IOException ioe) {
@@ -49,7 +47,4 @@ public class HumanFileManager {
         }
         return result;
     }
-
-
 }
-

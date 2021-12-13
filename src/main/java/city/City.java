@@ -29,4 +29,27 @@ public class City {
     public void addBuilding(Building building) {
         buildings.add(building);
     }
+
+    public Building findHighestBuildingInCity() {
+        int max = Integer.MIN_VALUE;
+        for (Building b : buildings) {
+            if (b.getLevels() > max) {
+                max = b.getLevels();
+            }
+        }
+        return buildings.get(max);
+    }
+
+    public Building findHighestBuilding() {
+        int max = Integer.MIN_VALUE;
+        Building building1 = buildings.get(0);
+        for (Building b : buildings) {
+            if (b.getLevels() > max) {
+                max = b.getLevels();
+                building1 = b;
+
+            }
+        }
+        return building1;
+    }
 }

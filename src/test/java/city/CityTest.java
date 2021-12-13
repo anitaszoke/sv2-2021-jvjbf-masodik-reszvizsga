@@ -53,15 +53,15 @@ class CityTest {
         assertEquals("City can't be larger than 500", iae.getMessage());
     }
 
-//
-//    @Test
-//    void findHighestBuildingInCityTest() {
-//        Building building = city.findHighestBuilding();
-//
-//        assertEquals(10, building.getLevels());
-//        assertEquals(220, building.getArea());
-//    }
-//
+
+    @Test
+    void findHighestBuildingInCityTest() {
+        Building building = city.findHighestBuilding();
+
+        assertEquals(10, building.getLevels());
+        assertEquals(220, building.getArea());
+    }
+
 //    @Test
 //    void findBuildingsByStreetTest() {
 //

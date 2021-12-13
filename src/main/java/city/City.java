@@ -58,7 +58,10 @@ public class City {
 
     public boolean isThereBuildingWithMorePeopleThan(int i) {
         for (Building b : buildings) {
-
+            if (b.calculateNumberOfPeopleCanFit() > i) {
+                return true;
+            }
         }
+        return false;
     }
 }

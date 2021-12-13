@@ -17,9 +17,14 @@ public class HumanFileManager {
 
     public void readHumansFromFile(Path path) {
         List<String> humanStringList = new ArrayList<>();
-
         try {
             humanStringList = Files.readAllLines(path);
+
+            for (String s : humanStringList) {
+                String[] stringAr = s.split(";");
+                humans.add(new Human(stringAr[0],stringAr[1]));
+            }
+
         } catch (IOException ioe) {
             throw new IllegalStateException("Can't read file!", ioe);
         }
@@ -38,7 +43,8 @@ public class HumanFileManager {
         List<String> result = new ArrayList<>();
         for (Human h : humans) {
             if (h.getIdentityNumber().startsWith("1") || h.getIdentityNumber().startsWith("3")) {
-                result.add(h.toString());
+                StringBuilder stringBuilder = new StringBuilder();
+                result.add(stringBuilder.append(h.getName()).append(";").append(h.getIdentityNumber()).toString());
             }
         }
         return result;

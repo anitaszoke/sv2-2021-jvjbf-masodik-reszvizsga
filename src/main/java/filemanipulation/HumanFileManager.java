@@ -17,11 +17,8 @@ public class HumanFileManager {
         List<String> humanStringList;
         try {
             humanStringList = Files.readAllLines(path);
+            createHumanList(humanStringList);
 
-            for (String s : humanStringList) {
-                String[] stringAr = s.split(";");
-                humans.add(new Human(stringAr[0], stringAr[1]));
-            }
 
         } catch (IOException ioe) {
             throw new IllegalStateException("Can't read file!", ioe);
@@ -29,7 +26,7 @@ public class HumanFileManager {
     }
 
     public void writeMaleHumansToFile(Path path) {
-        List<String> result = manList();
+        List<String> result = createManList();
         try {
             Files.write(Path.of(path.toString()), result);
         } catch (IOException ioe) {
@@ -37,7 +34,7 @@ public class HumanFileManager {
         }
     }
 
-    private List<String> manList() {
+    private List<String> createManList() {
         List<String> result = new ArrayList<>();
         for (Human h : humans) {
             if (h.getIdentityNumber().startsWith("1") || h.getIdentityNumber().startsWith("3")) {
@@ -46,5 +43,13 @@ public class HumanFileManager {
             }
         }
         return result;
+    }
+
+    private List<Human> createHumanList(List<String> humanStringList) {
+        for (String s : humanStringList) {
+            String[] stringAr = s.split(";");
+            humans.add(new Human(stringAr[0], stringAr[1]));
+        }
+        return humans;
     }
 }

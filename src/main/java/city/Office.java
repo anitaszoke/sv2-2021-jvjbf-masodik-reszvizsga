@@ -1,8 +1,9 @@
 package city;
 
+import static city.Home.SQUARE_METERS_NEED_PER_PERSON;
+
 public class Office extends Building {
 
-    private static final int SQUARE_METERS_NEED_PER_PERSON = 20;
     private String company;
     private int numberOfTablesPerLevel;
 
@@ -28,6 +29,6 @@ public class Office extends Building {
 
     @Override
     public int calculateNumberOfPeopleCanFit() {
-        return (super.getLevels() * super.getArea()) / SQUARE_METERS_NEED_PER_PERSON;
+        return (getFullArea()/ SQUARE_METERS_NEED_PER_PERSON);
     }
 }
